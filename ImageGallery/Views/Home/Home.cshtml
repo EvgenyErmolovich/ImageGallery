@@ -1,0 +1,11 @@
+﻿@model ImageGallery.Models.Image
+
+@{
+    ViewBag.Title = "Home";
+}
+
+@if(Model.ImageData != null){
+    <img src = "@Url.Action("GetImage", "Home", new { Model.Id })" />
+}
+
+
