@@ -11,13 +11,32 @@ namespace ImageGallery.Controllers
     public class HomeController : Controller
     {
         Images db = new Images();
+        public int PageSize = 5;
 
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-            return View(db.Image);
+            ImagesListViewModel model = new ImagesListViewModel
+            {
+                Images = db.Image
+                .OrderBy(p => p.Id)
+                .Skip((page - 1) * PageSize)
+                .Take(PageSize),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = PageSize,
+                    TotalItems = db.Image.Count()
+                }
+            };
+            return View(model);
         }
-
-        public ActionResult Create()
+        [HttpGet]
+        public FileContentResult GetImage(int id){
+            Image image = db.Image.FirstOrDefault(i => i.Id == id);
+            if (image != null) return File(image.ImageData, image.ImageMimeType);
+            return null;
+        }
+         public ActionResult Create()
         {
             return View();
         }

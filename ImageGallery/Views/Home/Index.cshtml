@@ -1,5 +1,5 @@
-﻿@model IEnumerable<ImageGallery.Models.Image>
-
+﻿@model ImageGallery.Models.ImagesListViewModel
+@using ImageGallery.HtmlHelpers
 @{
     ViewBag.Title = "Index";
 }
@@ -14,11 +14,15 @@
         <th>Pictures</th>
     </tr>
 
- @foreach(var item in Model) {
+ @foreach(var item in Model.Images) {
         <td>
-            @Html.Raw("<img style='width:100px; height:100px;' src=\"data:image/jpeg;base64,"
-+ Convert.ToBase64String(item.ImageData) + "\" />")
+            @if (item.ImageData != null)
+            {
+                <img width="180" height="180" src = "@Url.Action("GetImage", "Home", new { id = item.Id })"/>
+            }
         </td>
     }
-
 </table>
+<div class="pager">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", new { page = x }))
+</div>

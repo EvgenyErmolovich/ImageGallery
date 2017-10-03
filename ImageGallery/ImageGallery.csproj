@@ -139,6 +139,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Models\Image.cs">
       <DependentUpon>ImageModel.tt</DependentUpon>
     </Compile>
@@ -157,6 +158,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ImageModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ImagesListViewModel.cs" />
+    <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
