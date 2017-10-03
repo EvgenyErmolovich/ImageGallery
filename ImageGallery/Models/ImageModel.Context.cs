@@ -13,10 +13,10 @@ namespace ImageGallery.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ImageEntitie : DbContext
+    public partial class Images : DbContext
     {
-        public ImageEntitie()
-            : base("name=ImageEntitie")
+        public Images()
+            : base("name=Images")
         {
         }
     

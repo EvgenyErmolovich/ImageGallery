@@ -1,0 +1,26 @@
+﻿@model ImageGallery.Models.Image
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@using (Html.BeginForm("Create", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+@Html.ValidationSummary(true)
+<fieldset>
+    <legend>Add picture</legend>
+
+    <div class="editor-label">File picture</div>
+    <div class="editor-field">
+        <input type="file" name="uploadImage" />
+    </div>
+
+    <p>
+        <input type="submit" value="Добавить" />
+    </p>
+</fieldset>
+}
+
+<div>
+    @Html.ActionLink("Go away", "Index")
+</div>

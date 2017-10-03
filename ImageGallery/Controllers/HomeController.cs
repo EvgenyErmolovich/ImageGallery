@@ -10,14 +10,37 @@ namespace ImageGallery.Controllers
 {
     public class HomeController : Controller
     {
-        ImageEntitie context = new ImageEntitie();
-        
-        [HttpGet]
-        public FileContentResult GetImage(int imageId)
-        { 
-            Image image = context.Image.FirstOrDefault(i => i.Id == imageId);
-            if(image != null) return File(image.ImageData, image.ImageMimeType);
-            return null;
+        Images db = new Images();
+
+        public ActionResult Index()
+        {
+            return View(db.Image);
+        }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Image pic, HttpPostedFileBase uploadImage)
+        {
+            if (ModelState.IsValid && uploadImage != null)
+            {
+                byte[] imageData = null;
+                using (var binaryReader = new BinaryReader(uploadImage.InputStream))
+                {
+                    imageData = binaryReader.ReadBytes(uploadImage.ContentLength);
+                }
+                pic.ImageData = imageData;
+                pic.ImageMimeType = uploadImage.ContentType;
+
+                db.Image.Add(pic);
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            return View(pic);
         }
     }
 }

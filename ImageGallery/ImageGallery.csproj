@@ -99,35 +99,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\ImageDb.mdf" />
-    <Content Include="App_Data\ImageDb_log.ldf">
-      <DependentUpon>ImageDb.mdf</DependentUpon>
+    <Content Include="App_Data\Image.mdf" />
+    <Content Include="App_Data\Image_log.ldf">
+      <DependentUpon>Image.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="ImagesStore\images.jpg" />
-    <Content Include="ImagesStore\images1.jpg" />
-    <Content Include="ImagesStore\images10.jpg" />
-    <Content Include="ImagesStore\images11.jpg" />
-    <Content Include="ImagesStore\images12.jpg" />
-    <Content Include="ImagesStore\images13.jpg" />
-    <Content Include="ImagesStore\images14.jpg" />
-    <Content Include="ImagesStore\images15.jpg" />
-    <Content Include="ImagesStore\images16.jpg" />
-    <Content Include="ImagesStore\images17.jpg" />
-    <Content Include="ImagesStore\images18.jpg" />
-    <Content Include="ImagesStore\images19.jpg" />
-    <Content Include="ImagesStore\images2.jpg" />
-    <Content Include="ImagesStore\images3.jpg" />
-    <Content Include="ImagesStore\images4.jpg" />
-    <Content Include="ImagesStore\images5.jpg" />
-    <Content Include="ImagesStore\images6.jpg" />
-    <Content Include="ImagesStore\images7.jpg" />
-    <Content Include="ImagesStore\images8.jpg" />
-    <Content Include="ImagesStore\images9.jpg" />
     <Content Include="Models\ImageModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ImageModel.edmx</DependentUpon>
@@ -188,7 +168,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Home\Home.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
