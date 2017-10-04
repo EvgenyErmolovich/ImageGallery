@@ -1,5 +1,5 @@
 ﻿@model ImageGallery.Models.ImagesListViewModel
-@using ImageGallery.HtmlHelpers
+
 @{
     ViewBag.Title = "Index";
 }
@@ -9,20 +9,19 @@
 <p>
     @Html.ActionLink("Add Picture", "Create")
 </p>
-<table>
-    <tr>
-        <th>Pictures</th>
-    </tr>
-
- @foreach(var item in Model.Images) {
-        <td>
+<div class="row">
+    @foreach (var item in Model.Images)
+    {
+        <div class= "col-sm-5">
             @if (item.ImageData != null)
             {
-                <img width="180" height="180" src = "@Url.Action("GetImage", "Home", new { id = item.Id })"/>
+                <a href = "@Url.Action("GetImage", "Home", new { id = item.Id })" data-lightbox = "roadtrip">
+                    <img class="img-responsive" id="one_img" src="@Url.Action("GetImage", "Home", new { id = item.Id })">
+                </a>
             }
-        </td>
+        </div>
     }
-</table>
+</div>
 <div class="pager">
     @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", new { page = x }))
 </div>

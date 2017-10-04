@@ -11,7 +11,7 @@ namespace ImageGallery.Controllers
     public class HomeController : Controller
     {
         Images db = new Images();
-        public int PageSize = 5;
+        public int PageSize = 4;
 
         public ActionResult Index(int page = 1)
         {
